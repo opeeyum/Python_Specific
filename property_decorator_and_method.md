@@ -1,18 +1,23 @@
-"""
+# Property Decorator and Property Method
 Property decorator as well as property method provide same functionalty.
+
 That is of to enable the user to access a member method as member variable of a class.
 
 With variable, we can Set its value, Get(retrieve) its value and Delete its value.
 
 Therefore when accessing a method as variable we want these three functionalities (as mentioned above).
+
 For each of these functionality we have to create a separate method.
-Three functionality means three method namely Setter, Getter, and Deleter.
 
-CASE 1: Using property decorator all three method must have to follow an nameing convention that is,
-if @property decorator is applied to method - let us say "fullname()" then,
-property decorators will be applied as follows:
+Three functionality means three method namely **Setter**, **Getter**, and **Deleter**.
 
-class Classname:
+### CASE 1: Using Property Decorator 
+ When using property deorator (i.e `@property`) all three method must have to follow an nameing convention that is,
+
+ If `@property` decorator is applied to a method - let us say `fullname()` then, property decorators will be applied as follows:
+
+ ```
+ class Classname:
     this method will serve as setter
     @property
     def fullname(self,):
@@ -25,7 +30,7 @@ class Classname:
     @fullname.deleter
     def fullname(self,):
         pass
-
+ ```
     That is, all the methods must have same name.
 
 CASE 2: Using property() method we can create Setter, Getter and Deleter method with any name. 
