@@ -1,15 +1,15 @@
 # Property Decorator and Property Method
-Property decorator as well as property method provide same functionalty.
+ - Property decorator (i.e `@property`) as well as Property method (i.e`property()`) provide same functionalty.
 
-That is of to enable the user to access a member method as member variable of a class.
+ - That is of to enable the user **to access a member method as member variable of a class**.
 
-With variable, we can Set its value, Get(retrieve) its value and Delete its value.
+ - With variable, we can **Set** its value, **Get**(retrieve) its value and **Delete** its value.
 
-Therefore when accessing a method as variable we want these three functionalities (as mentioned above).
+ - Therefore when accessing a method as variable we want all these three functionalities (as mentioned above).
 
-For each of these functionality we have to create a separate method.
+ - For each of these functionality we have to create separate methods.
 
-Three functionality means three method namely **Setter**, **Getter**, and **Deleter**.
+ - Three functionality means three methods namely - **Getter**, **Setter**, and **Deleter**.
 
 ### CASE 1: Using Property Decorator 
  When using property deorator (i.e `@property`) all three method must have to follow an nameing convention that is,
@@ -18,7 +18,8 @@ Three functionality means three method namely **Setter**, **Getter**, and **Dele
 
  ```
  class Classname:
-    this method will serve as setter
+ 
+    # this method will serve as setter
     @property
     def fullname(self,):
         pass
@@ -31,12 +32,49 @@ Three functionality means three method namely **Setter**, **Getter**, and **Dele
     def fullname(self,):
         pass
  ```
-    That is, all the methods must have same name.
+   ## OR
+  ```
+ class Classname:
+ 
+    # this method will serve as getter
+    @property
+    def fullname(self,):
+        pass
 
-CASE 2: Using property() method we can create Setter, Getter and Deleter method with any name. 
-But after creating all these three methods we have to create a property() method object by passing name of Getter, Setter, and Deleter method in order.
+    @fullname.setter
+    def fullname(self,):
+        pass
+
+    @fullname.deleter
+    def fullname(self,):
+        pass
+ ```
+   ## OR
+ ```
+ class Classname:
+ 
+    # this method will serve as deleter
+    @property
+    def fullname(self,):
+        pass
+
+    @fullname.setter
+    def fullname(self,):
+        pass
+
+    @fullname.getter
+    def fullname(self,):
+        pass
+ ```
+ **Convention is that, all the methods must have same name.**
+
+### CASE 2: Using Property Method 
+When using Property method (i.e `property()`) we can create **Getter**, **Getter** and **Deleter** method with any name. 
+
+But **after creating all these three methods** we have to create a `property()` method object by passing name of Getter, Setter, and Deleter method in order.
 
 For example:
+```
 class Classname:
     
     def anyname(self,):
@@ -49,14 +87,15 @@ class Classname:
         pass
 
     varname = property(anyname, bunnyname, funnyname)
-    NOTE: If not passed as keyword agruement then order will be getter, setter, and deleter.
-        else, 
-        varname = property(fget=anyname, fset=bunnyname, fdel=funnyname)
-"""
-from numpy import full
-
-
-class Student:
+ ```
+ Its not neccessay to have all three - Getter, Setter and Deleter method. If thats the case we have to pass method name as Keyword argument, that is,
+ ```
+ varname = property(fget=anyname, fset=bunnyname, fdel=funnyname)
+ ```
+ 
+ ### Complete Use case of Property decorator and property method
+ ```
+ class Student:
     """Usecase of property decorator and property method."""
     def __init__(self, fname, lname) -> None:
         self.fname = fname
@@ -94,3 +133,13 @@ print(obj.fullname)
 
 del obj.fullname
 print(obj.fullname)
+```
+**Output be like: **
+```
+Omprakash Mishra
+Pratham Mishra
+Nishant
+Tiwari
+Nishant Tiwari
+None None
+```
