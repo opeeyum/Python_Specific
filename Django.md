@@ -8,6 +8,7 @@
 
 ### Django Specific Commands
 - Create virtual environment: ```python3 -m venv <virtual environment name>```
+  - OR use virtuaenv package: ```virtualenv -p python3 <env name>```
 
 - Activate virtual environment: ```source <virtual environment name>/bin/activate```
 
